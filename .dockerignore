@@ -1,0 +1,6 @@
+node_modules
+.git
+.env
+backups
+tests
+npm-debug.log
