@@ -37,6 +37,9 @@ services:
         max-file: "3"
 
   db:
+    build:
+      context: .
+      dockerfile: db/Dockerfile
     image: postgres:17-alpine
     container_name: business-analytics-db
     restart: unless-stopped
@@ -52,7 +55,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - backups_data:/backups
-      - ./db/init:/docker-entrypoint-initdb.d:ro,Z
 
     healthcheck:
       test:
